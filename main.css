@@ -9,6 +9,7 @@
 :root{
     --grey-bg: #F6F6F6;
     --blue-btn: #4576F4;
+    --blue-btn-hover: #3663d6;
 }
 
 .main-header{
@@ -37,6 +38,12 @@
     justify-content: center;
 }
 
+.landing-content-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .landing-works{
     flex: 1;
     background-color: var(--grey-bg);
@@ -45,14 +52,9 @@
     background-position: center;
 }
 
-
-.landing-content .name{
-    
-}
-
 .landing-content .description{
     margin-top: 20px;
-    width: 380px;
+    display: inline;
 }
 
 .landing-content .description > span{
@@ -64,7 +66,7 @@
 }
 
 .buttons-list{
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
 }
 
@@ -74,16 +76,18 @@
 
 .btn{
     font-size: 12px;
-    height: 35px;
+    height: 40px;
     border: 1px var(--blue-btn) solid;
-    border-radius: 5px;
+    border-radius: 10px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10px;
+    padding: 0 15px;
 
     cursor: pointer;
+
+    font-weight: 600;
 }
 
 .blue-btn{
@@ -91,6 +95,43 @@
     color: white;
 }
 
+.blue-btn:hover{
+   background-color: var(--blue-btn-hover); 
+}
+
+.white-btn:hover{
+    background-color: #eef3ff;
+}
+
 .white-btn{
     border: 1px var(--blue-btn) solid;
+    color: var(--blue-btn);
+}
+
+
+@media(max-width:700px){
+    .landing{
+        /* background-color: yellow; */
+        flex-direction: column-reverse;
+    }
+
+    .landing > .landing-content{
+        /* background-color: red; */
+        height: 50vh;
+        width: auto;
+    }
+
+    .main-header{
+    font-size: 10vw;
+    }
+
+    .desc{
+        font-size: 3vw;
+        font-weight: 400;
+    }
+
+    .landing-works{
+        flex: 1;
+        width: 100%;
+    }
 }

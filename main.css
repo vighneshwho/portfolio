@@ -244,6 +244,11 @@
 
     .works-list{
         grid-template-columns: 1fr;
-        grid-gap: 50px;
+        grid-gap: 40px;
     }
+
+    .works{
+    padding: 0 30px;
+    }
+
 }

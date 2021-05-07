@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --grey-bg: #F6F6F6;
+    --blue-btn: #4576F4;
+}
+
+.main-header{
+    font-size: 70px;
+}
+
+.desc{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.landing{
+    height: 100vh;
+    display: flex;
+    align-items: stretch;
+}
+
+.landing-content{
+    width: 600px;
+    box-shadow: 13px -6px 34px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-works{
+    flex: 1;
+    background-color: var(--grey-bg);
+    background-image: url(./assets/workspng.png);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.landing-content .name{
+    
+}
+
+.landing-content .description{
+    margin-top: 20px;
+    width: 380px;
+}
+
+.landing-content .description > span{
+    font-weight: 700;
+}
+
+.landing-content .buttons{
+    margin-top: 60px;
+}
+
+.buttons-list{
+    margin-top: 10px;
+    display: flex;
+}
+
+.buttons-list > .btn:first-child{
+    margin-right: 10px;
+}
+
+.btn{
+    font-size: 12px;
+    height: 35px;
+    border: 1px var(--blue-btn) solid;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+
+    cursor: pointer;
+}
+
+.blue-btn{
+    background-color: var(--blue-btn);
+    color: white;
+}
+
+.white-btn{
+    border: 1px var(--blue-btn) solid;
+}

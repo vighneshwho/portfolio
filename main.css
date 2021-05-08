@@ -234,7 +234,7 @@ svg{
 
 .contact{
     min-height: 100vh;
-    padding: 70px 0;
+    padding: 70px 15px;
     box-sizing: border-box;
 
     display: flex;
@@ -299,8 +299,22 @@ svg{
     padding: 40px 0;
 }
 
-.contact-form{
+.contact-bottom{
+    display: flex;
+    flex-direction: column;
+
     width: 450px;
+
+    align-self: center;
+}
+
+.contact-form-container{
+    height: 55px;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+}
+
+.contact-form{
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -373,28 +387,67 @@ svg{
     transition: width 0.3s ease-out;
 }
 
-.contact-form-container{
-    height: 55px;
-    overflow: hidden;
+.contact-bottom-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 
-    transition: height 0.3s ease-out;
+    font-weight: 300;
+    font-size: 12px;
 }
 
-/* 60px for input - 40px for btn */
+.contact-add-message{
 
-.contact-form-container:hover{
+    align-self: flex-end;
+
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+
+    color: var(--blue-btn);
+    font-weight: 600;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    height: 15px;
+    overflow: hidden;
+}
+
+.contact-add-message > span{
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: margin 0.1s ease-out;
+}
+
+.contact-add-message > span:last-child{
+    color: red;
+    margin-bottom: -15px;
+}
+
+.message-add-state > span:last-child{
+    margin-bottom: 0px;
+}
+
+
+.full-height{
     height: 350px;
 }
 
-.contact-form-container:hover .email-btn{
+.full-height .email-btn{
     width: 0px;
     padding: 0;
     opacity: 0;
 }
 
-/* .contact-form-container:hover .email-btn > span{
-    width: 0px;
-} */
 
 .message-btn{
     display: flex;
@@ -429,9 +482,6 @@ svg{
         width: auto;
     }
 
-    .landing-content-info{
-    }
-
     .main-header{
     font-size: 10vw;
     }
@@ -453,6 +503,15 @@ svg{
 
     .works{
     padding: 0 30px;
+    }
+
+    .contact-bottom{
+        width: 100%;
+    }   
+
+    .contact-sub > .mail{
+        font-size: 5vw;
+        font-weight: 300;
     }
 
 }

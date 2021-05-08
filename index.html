@@ -259,25 +259,60 @@
         <div class="contact-or">
             OR
         </div>
-        <div class="contact-form-container">
-            <form action="" class="contact-form">
-                <div class="input">
-                    <input type="text" placeholder="Your e-mail">
-                    <div class="email-btn">
-                        <span>Send</span>
+        <div class="contact-bottom">
+            <div class="contact-bottom-text">
+                Fill out the form and I will reach out to you
+            </div>
+            <div class="contact-form-container" id="form-container">
+                <form action="" class="contact-form">
+                    <div class="input">
+                        <input type="text" placeholder="Your e-mail">
+                        <div class="email-btn">
+                            <span>Send</span>
+                        </div>
                     </div>
-                </div>
+            
+                    <div class="input">
+                        <textarea name="comment" rows="10" form="usrform" placeholder="Message"></textarea>
+                    </div>
+                    <div class="message-btn">
+                        Send
+                    </div>
+                </form>
+            </div>
 
-                <div class="input">
-                    <textarea name="comment" rows="10" form="usrform" placeholder="Message"></textarea>
-                </div>
-                <div class="message-btn">
-                    Send
-                </div>
-            </form>
+            <div class="contact-add-message" id="add-message">
+                <span id="add-button">
+                    Add a Message
+                </span>
+                <span id="remove-button">
+                    Remove Message
+                </span>
+            </div>
         </div>
     </div>
     
+    <script>
+        var addMessage = document.getElementById('add-message');
+        var addButton= document.getElementById('add-button');
+        var removeButton = document.getElementById('remove-button');
+        var form = document.getElementById('form-container');
+
+        addButton.addEventListener('click', addMessageTrigger);
+        removeButton.addEventListener('click', removeMessageTrigger);
+        
+        function addMessageTrigger(){
+            form.classList.toggle('full-height')
+            addMessage.classList.add('message-add-state');
+        }
+
+        function removeMessageTrigger() {
+                form.classList.toggle('full-height')
+                addMessage.classList.remove('message-add-state');
+            }
+
+        
+    </script>
 
     <!-- <script>
         var form = document.getElementById("telegramForm");

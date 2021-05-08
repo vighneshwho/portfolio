@@ -17,6 +17,11 @@ a{
     text-decoration: none;
 }
 
+svg{
+    width: 20px;
+    height: auto;
+}
+
 .main-header{
     font-size: 70px;
 }
@@ -159,6 +164,7 @@ a{
 }
 
 .works-list-item-overlay{
+    border-radius: 10px;
     position: absolute;
     background: linear-gradient(179.68deg, rgba(0, 0, 0, 0) 44.95%, rgba(0, 0, 0, 0.5208) 97.14%);
     top: 0;
@@ -224,6 +230,187 @@ a{
     height: 20vw;
 
 }
+
+
+.contact{
+    min-height: 100vh;
+    padding: 70px 0;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-header{
+    /* margin-top: 80px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-sub{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-sub > .mail{
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.separator{
+    width: 2px;
+    align-self: stretch;
+    margin: 0 20px;
+    background-color: #838383;
+}
+
+.social-links{
+    align-self: stretch;
+
+    display: flex;
+    align-items: center;
+}
+
+.social-links svg{
+    width: 20px;
+
+    margin-bottom: -6px;
+    cursor: pointer;
+}
+
+.social-links svg:first-child{
+    margin-right: 20px;
+}
+
+
+
+.contact-or{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+    font-weight: 600;
+    padding: 40px 0;
+}
+
+.contact-form{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.contact-form .input{
+    border-radius: 10px;
+    border: 1px #CCDAFF solid;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: stretch;
+    padding: 6px;
+
+    min-height: 40px;
+    margin-bottom: 20px;
+}
+
+.contact-form .input > input::placeholder{
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.contact-form .input > textarea::placeholder{
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.contact-form .input > input{
+    padding: 0 10px;
+}
+
+.contact-form .input > textarea{
+    padding: 10px;
+
+    resize: none;
+}
+
+.contact-form .input > input, .contact-form .input > textarea{
+    flex: 1;
+    border-color: rgba(255, 255, 255, 0);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.email-btn{
+    background-color: var(--blue-btn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+
+    font-size: 12px;
+
+    width: 130px;
+    transition: width 0.3s ease-out, opacity 0.2s ease-out;
+
+    overflow: hidden;
+    opacity: 1;
+
+}
+
+.email-btn > span{
+    flex-shrink: 1;
+    transition: width 0.3s ease-out;
+}
+
+.contact-form-container{
+    height: 55px;
+    overflow: hidden;
+
+    transition: height 0.3s ease-out;
+}
+
+/* 60px for input - 40px for btn */
+
+.contact-form-container:hover{
+    height: 350px;
+}
+
+.contact-form-container:hover .email-btn{
+    width: 0px;
+    padding: 0;
+    opacity: 0;
+}
+
+/* .contact-form-container:hover .email-btn > span{
+    width: 0px;
+} */
+
+.message-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--blue-btn);
+
+    height: 55px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    /* margin-top: 10px; */
+}
+
+
 
 @media(max-width:1000px){
     .works-list{

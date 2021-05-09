@@ -334,11 +334,11 @@
                 console.log("Email Error")
             }
             
-            if (form.elements[2].value == '') {
-                // errorPhone.classList.add("form-error-show");
-                abort = true;
-                console.log(form.elements[2].value)
-            }
+            // if (form.elements[2].value == '') {
+            //     // errorPhone.classList.add("form-error-show");
+            //     abort = true;
+            //     console.log(form.elements[2].value)
+            // }
             
             if (abort) {
                 setTimeout(() => {
@@ -353,7 +353,7 @@
             // button.classList.add('sending');
             
             
-            fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${form.elements[1].value}`)
+            fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${form.elements[2].value}`)
             .then(res => {
                 if (res.ok) {
                     handleTelegramSuccess();

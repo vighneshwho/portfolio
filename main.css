@@ -391,8 +391,11 @@ button{
 .email-btn{
     background-color: var(--blue-btn);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+
+    align-self: center;
+    height: 39px;
 
 
     color: white;
@@ -410,8 +413,23 @@ button{
 }
 
 .email-btn > span{
-    flex-shrink: 1;
-    transition: width 0.3s ease-out;
+
+    flex-shrink: 0;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: width 0.3s ease-out, margin 0.3s ease-out;
+}
+
+.email-btn-sending{
+    margin-top: -39px;
+}
+
+.email-btn-done{
+    margin-top: -78px;
 }
 
 .contact-bottom-text{
@@ -487,8 +505,9 @@ button{
 
 .message-btn{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+    /* justify-content: center; */
 
     background-color: var(--blue-btn);
 
@@ -497,6 +516,36 @@ button{
     color: white;
     font-weight: 600;
     /* margin-top: 10px; */
+
+
+    overflow: hidden;
+}
+
+.message-btn > span{
+    height: 55px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: margin 0.3s ease-out;
+}
+
+.message-btn-sending{
+    margin-top: -55px;
+}
+
+.message-btn-done{
+    margin-top: -110px;
+}
+
+.done{
+    background-color: #32B768;
+}
+
+.fail{
+    background-color: #FF392E;
 }
 
 

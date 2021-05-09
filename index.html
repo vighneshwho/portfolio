@@ -266,9 +266,17 @@
             <div class="contact-form-container" id="form-container">
                 <form action="" class="contact-form" id="form">
                     <div class="input">
-                        <input type="text" placeholder="Your e-mail">
+                        <input type="text" placeholder="Your e-mail" value="vighneshaka8921@gmail.com">
                         <button type="submit" class="email-btn" id="btn">
-                            <span>Send</span>
+                            <span id="email-btn-head" class="">
+                                Send
+                            </span>
+                            <span class="sending">
+                                Sending
+                            </span>
+                            <span class="done">
+                                Done
+                            </span>
                         </button>
                     </div>
             
@@ -276,7 +284,15 @@
                         <textarea name="comment" rows="10" form="form" placeholder="Message"></textarea>
                     </div>
                     <button type="submit" class="message-btn" id="btn-big">
-                        Send
+                        <span id="message-btn-head" class="">
+                            Send
+                        </span>
+                        <span class="sending">
+                            Sending
+                        </span>
+                        <span class="done">
+                            Done
+                        </span>
                     </button>
                 </form>
             </div>
@@ -306,6 +322,8 @@
         var removeButton = document.getElementById('remove-button');
         var form = document.getElementById('form');
         var formContainer = document.getElementById('form-container');
+        var messageButtonHead = document.getElementById("message-btn-head");
+        var emailButtonHead = document.getElementById("email-btn-head");
 
         addButton.addEventListener('click', addMessageTrigger);
         removeButton.addEventListener('click', removeMessageTrigger);
@@ -331,8 +349,6 @@
         function sendMsg(e){
             e.preventDefault();
             emailError.classList.remove("error-show");
-
-            console.log("submitting")
 
 
             var abort = false;
@@ -363,9 +379,10 @@
             }
             
             // button.classList.add('sending');
+            messageButtonHead.classList = "message-btn-sending";
+            emailButtonHead.classList = "email-btn-sending";
             
-            
-            fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${form.elements[2].value}`)
+            fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-46769959&text=${form.elements[0].value}+${form.elements[2].value}`)
             .then(res => {
                 if (res.ok) {
                     handleTelegramSuccess();
@@ -381,30 +398,38 @@
                 )
             }
             
-            // function resetbutton() {
-            //     buttonHead.innerHTML = "Send";
-            //     button.className = '';
-            //     form.reset();
-            // }
+            function resetbutton() {
+                messageButtonHead.innerHTML = "Send";
+                emailButtonHead.innerHTML = "Send";
+                messageButtonHead.classList = "";
+                emailButtonHead.classList = "";
+                form.reset();
+            }
             
             function handleTelegramError() {
-                // buttonHead.innerHTML = "Failed, please retry";
-                // button.classList.add("error");
-                // button.classList.remove('sending');
-                // setTimeout(() => {
-                //     button.classList.add('shake');
-                // }, 100);
-                // button.classList.remove('shake');
+                messageButtonHead.innerHTML = "Failed";
+                messageButtonHead.classList = "";
+                btn.classList.add("fail");
+
+                emailButtonHead.innerHTML = "Failed";
+                emailButtonHead.classList = "";
+                btnBig.classList.add("fail");
+                
+                setTimeout(() => {
+                    messageButtonHead.classList.add('shake');
+                    emailButtonHead.classList.add('shake');
+                }, 100);
+                emailButtonHead.classList.remove('shake');
 
                 console.log("Error")
             }
             
             function handleTelegramSuccess() {
-                // button.classList.add('done');
-                // button.classList.remove('sending');
-                // setTimeout(() => {
-                //     resetbutton();
-                // }, 3000);
+                messageButtonHead.classList = "message-btn-done";
+                emailButtonHead.classList = "email-btn-done";
+                setTimeout(() => {
+                    resetbutton();
+                }, 3000);
 
                 console.log("Success")
         }

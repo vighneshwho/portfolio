@@ -264,20 +264,20 @@
                 Fill out the form and I will reach out to you
             </div>
             <div class="contact-form-container" id="form-container">
-                <form action="" class="contact-form">
+                <form action="" class="contact-form" id="form">
                     <div class="input">
                         <input type="text" placeholder="Your e-mail">
-                        <div class="email-btn">
+                        <button type="submit" class="email-btn">
                             <span>Send</span>
-                        </div>
+                        </button>
                     </div>
             
                     <div class="input">
-                        <textarea name="comment" rows="10" form="usrform" placeholder="Message"></textarea>
+                        <textarea name="comment" rows="10" form="form" placeholder="Message"></textarea>
                     </div>
-                    <div class="message-btn">
+                    <button type="submit" class="message-btn">
                         Send
-                    </div>
+                    </button>
                 </form>
             </div>
 
@@ -296,25 +296,110 @@
         var addMessage = document.getElementById('add-message');
         var addButton= document.getElementById('add-button');
         var removeButton = document.getElementById('remove-button');
-        var form = document.getElementById('form-container');
+        var form = document.getElementById('form');
+        var formContainer = document.getElementById('form-container');
 
         addButton.addEventListener('click', addMessageTrigger);
         removeButton.addEventListener('click', removeMessageTrigger);
         
         function addMessageTrigger(){
-            form.classList.toggle('full-height')
+            formContainer.classList.toggle('full-height')
             addMessage.classList.add('message-add-state');
         }
 
         function removeMessageTrigger() {
-                form.classList.toggle('full-height')
+                formContainer.classList.remove('full-height')
                 addMessage.classList.remove('message-add-state');
             }
 
         
     </script>
 
-    <!-- <script>
+    <script>
+        var emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        form.addEventListener('submit', sendMsg, false);
+
+        function sendMsg(e){
+            e.preventDefault();
+
+            console.log("submitting")
+
+
+            var abort = false;
+            // errorName.classList.add("form-error-show");
+            // abort = true;
+            if (!form.elements[0].value.match(emailPattern)) {
+                // errorEmail.classList.add("form-error-show");
+                abort = true;
+                console.log("Email Error")
+            }
+            
+            if (form.elements[2].value == '') {
+                // errorPhone.classList.add("form-error-show");
+                abort = true;
+                console.log(form.elements[2].value)
+            }
+            
+            if (abort) {
+                setTimeout(() => {
+                    // button.classList.add('shake');
+                    console.log("Abort")
+                }, 100);
+                // button.classList.remove('shake');
+                
+                return
+            }
+            
+            // button.classList.add('sending');
+            
+            
+            fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${form.elements[1].value}`)
+            .then(res => {
+                if (res.ok) {
+                    handleTelegramSuccess();
+                }
+                else {
+                    handleTelegramError();
+                }
+            })
+            .catch(
+                err => {
+                    handleTelegramError();
+                }
+                )
+            }
+            
+            // function resetbutton() {
+            //     buttonHead.innerHTML = "Send";
+            //     button.className = '';
+            //     form.reset();
+            // }
+            
+            function handleTelegramError() {
+                // buttonHead.innerHTML = "Failed, please retry";
+                // button.classList.add("error");
+                // button.classList.remove('sending');
+                // setTimeout(() => {
+                //     button.classList.add('shake');
+                // }, 100);
+                // button.classList.remove('shake');
+
+                console.log("Error")
+            }
+            
+            function handleTelegramSuccess() {
+                // button.classList.add('done');
+                // button.classList.remove('sending');
+                // setTimeout(() => {
+                //     resetbutton();
+                // }, 3000);
+
+                console.log("Success")
+        }
+    </script>
+
+<!-- <script>
+        if (form.elements[0].value == '') {
         var form = document.getElementById("telegramForm");
         var button = document.getElementById('submit-btn');
         var errorName = document.getElementById('error-name');

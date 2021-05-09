@@ -354,6 +354,11 @@ svg{
     resize: none;
 }
 
+button{
+    border: none;
+    cursor: pointer;
+}
+
 .contact-form .input > input, .contact-form .input > textarea{
     flex: 1;
     border-color: rgba(255, 255, 255, 0);
@@ -420,6 +425,7 @@ svg{
 }
 
 .contact-add-message > span{
+    flex-shrink: 0;
     height: 15px;
     display: flex;
     align-items: center;
@@ -431,6 +437,7 @@ svg{
 .contact-add-message > span:last-child{
     color: red;
     margin-bottom: -15px;
+
 }
 
 .message-add-state > span:last-child{

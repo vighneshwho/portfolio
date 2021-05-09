@@ -57,7 +57,7 @@ svg{
 .landing-works{
     flex: 1;
     background-color: var(--grey-bg);
-    background-image: url(./assets/workspng.png);
+    background-image: url(./assets/works.png);
     background-size: cover;
     background-position: center;
 }
@@ -622,6 +622,10 @@ button{
     display: none;
 }
 
+.desktop{
+    display: inherit;
+}
+
 
 
 @media(max-width:1000px){
@@ -683,5 +687,9 @@ button{
 
     .mobile{
         display: inherit;
+    }
+
+    .desktop{
+    display: none;
     }
 }

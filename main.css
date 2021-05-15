@@ -30,11 +30,13 @@ svg{
 
 .main-header{
     font-size: 70px;
+    color: #202020;
 }
 
 .desc{
     font-size: 20px;
     font-weight: 400;
+    color: #3a3a3a;
 }
 
 
@@ -75,6 +77,7 @@ svg{
 
 .landing-content .description > span{
     font-weight: 700;
+    color: #202020;
 }
 
 .landing-content .buttons{
@@ -304,17 +307,22 @@ svg{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    color: #3a3a3a;
 }
 
 .contact-sub > .mail{
     font-size: 25px;
     font-weight: 300;
+}
 
-    /* no texts are selectable */
-    -webkit-user-select: auto; /* Safari */
-    -moz-user-select: auto; /* Firefox */
-    -ms-user-select: auto; /* IE10+/Edge */
-    user-select: auto; /* Standard */
+.mail > a, .mail > a:visited{
+    color: #3a3a3a;
+}
+
+
+.mail > a:hover, .mail > a:active{
+    color: #202020;
 }
 
 .separator{
@@ -336,10 +344,16 @@ svg{
 
     margin-bottom: -6px;
     cursor: pointer;
+    fill: #3a3a3a;
+    transition: fill 0.3s ease-out;
 }
 
 .social-links svg:first-child{
     margin-right: 20px;
+}
+
+.social-links svg:hover{
+    fill: #202020;
 }
 
 

@@ -735,7 +735,7 @@
                 addMessage.classList.remove('message-add-state');
             }
 
-        function sendMsg(e){
+        async function sendMsg(e){
             e.preventDefault();
             emailError.classList.remove("error-show");
 
@@ -770,21 +770,59 @@
             // button.classList.add('sending');
             messageButtonHead.classList = "message-btn-sending";
             emailButtonHead.classList = "email-btn-sending";
-            
-            fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${form.elements[2].value}`)
-            .then(res => {
-                if (res.ok) {
+
+            try {
+                const SUPABASE_URL = 'https://couywmwqkclaitqxextm.supabase.co';
+                const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvdXl3bXdxa2NsYWl0cXhleHRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5MDIwNzUsImV4cCI6MjA4MTQ3ODA3NX0.ofj3To2AbXczgoA6Z10ZaUCTRd4iYUth6vjE833Tilo';  
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = {
+                    name: 'Anonymous',
+                    email: form.elements[0].value || "",
+                    message: form.elements[2].value || ""
+                };
+
+                const response = await fetch(
+                    `${SUPABASE_URL}/functions/v1/clever-service`,
+                    {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                        },
+                        body: JSON.stringify(data)
+                    }
+                );
+
+                if (response.ok) {
                     handleTelegramSuccess();
-                }
-                else {
+                    form.reset();
+                } else {
                     handleTelegramError();
+                    alert('Failed to send message');
+                    const error = await response.json();
+                    console.log(error.error);
                 }
-            })
-            .catch(
-                err => {
-                    handleTelegramError();
-                }
-                )
+
+            } catch (error) {
+                alert('Failed to send message', error);
+            }            
+            
+            // fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${form.elements[2].value}`)
+            // .then(res => {
+            //     if (res.ok) {
+            //         handleTelegramSuccess();
+            //     }
+            //     else {
+            //         handleTelegramError();
+            //     }
+            // })
+            // .catch(
+            //     err => {
+            //         handleTelegramError();
+            //     }
+            //     )
             }
             
             function resetbutton() {
